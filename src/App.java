@@ -19,7 +19,11 @@ public class App {
 
             guess(inputChar);
         }
+
+        input.close();
     }
+
+    
 
     private static void guess(char inputChar) {
         String updatedWordToDisplay = "";
