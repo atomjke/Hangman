@@ -23,11 +23,10 @@ public class App {
         input.close();
     }
 
-    
-
     private static void guess(char inputChar) {
         String updatedWordToDisplay = "";
 
+        // Check if char exists in the word and update temp strings
         for (int i = 0; i < randomWord.length(); i++) {
             if (randomWord.charAt(i) == inputChar) {
                 updatedWordToDisplay += inputChar;
