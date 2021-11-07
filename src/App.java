@@ -24,28 +24,28 @@ public class App {
     }
 
     private static void guess(char inputChar) {
-        String updatedWordToDisplay = "";
+        StringBuilder updatedWordToDisplay = new StringBuilder();
 
         // Check if char exists in the word and update temp strings
         for (int i = 0; i < randomWord.length(); i++) {
             if (randomWord.charAt(i) == inputChar) {
-                updatedWordToDisplay += inputChar;
+                updatedWordToDisplay.append(inputChar);
             } else if (wordToDisplay.charAt(i) != '_') {
-                updatedWordToDisplay += randomWord.charAt(i);
+                updatedWordToDisplay.append(randomWord.charAt(i));
             } else {
-                updatedWordToDisplay += '_';
+                updatedWordToDisplay.append('_');
             }
         }
 
-        if (wordToDisplay.equals(updatedWordToDisplay)) {
+        if (wordToDisplay.equals(updatedWordToDisplay.toString())) {
             mistakeCount++;
 
             drawHangmanImage();
         } else {
-            wordToDisplay = updatedWordToDisplay;
+            wordToDisplay = updatedWordToDisplay.toString();
         }
 
-        if (wordToDisplay.equals(randomWord)) {
+        if (wordToDisplay.equals(randomWord.toString())) {
             System.out.println("YOU GOT IT! The word is " + randomWord);
         }
     }
